@@ -1,64 +1,69 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import { Music2, Pause } from "lucide-react";
 
-export default function PlayerSound() {
+export type PlayerSoundRef = {
+  playMusic: () => Promise<void>;
+  pauseMusic: () => void;
+};
+
+const PlayerSound = forwardRef<PlayerSoundRef>((_, ref) => {
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  useEffect(() => {
-    const playAudio = async () => {
-      try {
-        if (audioRef.current) {
-          await audioRef.current.play();
-          setIsPlaying(true);
-        }
-      } catch (error) {
-        console.log("Autoplay was blocked by the browser");
-        setIsPlaying(false);
-      }
-    };
-
-    playAudio();
-  }, []);
-
-  // Play / Pause
-  const toggleMusic = async () => {
+  const playMusic = async () => {
     if (!audioRef.current) return;
 
     try {
-      if (audioRef.current.paused) {
-        await audioRef.current.play();
-        setIsPlaying(true);
-      } else {
-        audioRef.current.pause();
-        setIsPlaying(false);
-      }
+      await audioRef.current.play();
+      setIsPlaying(true);
     } catch (error) {
       console.error("Audio playback failed:", error);
+      setIsPlaying(false);
+    }
+  };
+
+  const pauseMusic = () => {
+    if (!audioRef.current) return;
+
+    audioRef.current.pause();
+    setIsPlaying(false);
+  };
+
+  useImperativeHandle(ref, () => ({
+    playMusic,
+    pauseMusic,
+  }));
+
+  const toggleMusic = async () => {
+    if (!audioRef.current) return;
+
+    if (audioRef.current.paused) {
+      await playMusic();
+    } else {
+      pauseMusic();
     }
   };
 
   return (
     <>
-      <audio ref={audioRef} loop>
+      <audio ref={audioRef} loop preload="auto">
         <source src="/audio/marry-me.mpeg" type="audio/mpeg" />
+        Your browser does not support the audio element.
       </audio>
+
       <button
         onClick={toggleMusic}
-        className="bg-fg text-bg w-10 lg:w-12 h-10 lg:h-12 rounded-full fixed left-4 md:left-6 bottom-10 z-10 flex justify-center items-center"
+        aria-label={isPlaying ? "Pause music" : "Play music"}
+        className="fixed bottom-10 left-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-fg text-bg md:left-6 lg:h-12 lg:w-12"
       >
-        {isPlaying ? (
-          <span>
-            <Pause className="w-4 h-4 lg:w-6 lg:h-6" />
-          </span>
-        ) : (
-          <span>
-            <Music2 className="w-4 h-4 lg:w-6 lg:h-6" />
-          </span>
-        )}
+        {isPlaying ? <Pause className="h-4 w-4 lg:h-6 lg:w-6" /> : <Music2 className="h-4 w-4 lg:h-6 lg:w-6" />}
       </button>
     </>
   );
-}
+});
+
+PlayerSound.displayName = "PlayerSound";
+
+export default PlayerSound;

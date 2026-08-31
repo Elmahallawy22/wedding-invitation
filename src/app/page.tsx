@@ -1,6 +1,6 @@
-import IntroScreen from "@/components/features/intro-screen";
+import InvitationShell from "@/components/features/invitation-shell";
+
 import HeroSection from "@/components/sections/hero-section";
-import PlayerSound from "@/components/features/player-sound";
 import WelcomeSection from "@/components/sections/welcome-section";
 import CountdwonSection from "@/components/sections/countdwon-section";
 import PhoteSection from "@/components/sections/phote-section";
@@ -13,10 +13,10 @@ import Footer from "@/components/sections/footer";
 
 export default function HomePage() {
   return (
-    <IntroScreen duration={1500}>
-      <main className="min-h-screen bg-">
+    <InvitationShell>
+      <main className="min-h-screen">
         <HeroSection />
-        <PlayerSound />
+
         <div className="flex justify-center">
           <div className="container">
             <WelcomeSection />
@@ -24,6 +24,7 @@ export default function HomePage() {
             <PhoteSection />
           </div>
         </div>
+
         <ProgramSection />
         <HallSection />
         <GuidelinesSection />
@@ -31,6 +32,6 @@ export default function HomePage() {
         <EndSection />
         <Footer />
       </main>
-    </IntroScreen>
+    </InvitationShell>
   );
 }

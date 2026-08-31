@@ -1,15 +1,25 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
-export default function IntroScreen({ duration = 3000, children }: { duration?: number; children: React.ReactNode }) {
+type IntroScreenProps = {
+  children: React.ReactNode;
+  onOpen?: () => Promise<void> | void;
+};
+
+export default function IntroScreen({ children, onOpen }: IntroScreenProps) {
   const [showIntro, setShowIntro] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setShowIntro(false), duration);
-    return () => clearTimeout(timer);
-  }, [duration]);
+  const handleEnter = async () => {
+    // Start music first
+    if (onOpen) {
+      await onOpen();
+    }
+
+    // Then close intro
+    setShowIntro(false);
+  };
 
   return (
     <>
@@ -21,13 +31,18 @@ export default function IntroScreen({ duration = 3000, children }: { duration?: 
               key="left-panel"
               initial={{ x: 0, rotateY: 0 }}
               exit={{ x: "-100%", rotateY: -8 }}
-              transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
+              transition={{
+                duration: 1.1,
+                ease: [0.76, 0, 0.24, 1],
+              }}
               style={{ transformOrigin: "left center" }}
-              className="relative w-1/2 h-full bg-gradient-to-br from-bg to-bg-alt shadow-brand"
+              className="relative h-full w-1/2 bg-gradient-to-br from-bg to-bg-alt shadow-brand"
             >
               <div className="absolute inset-4 border border-border" />
-              <div className="absolute top-6 left-6 w-8 h-8 border-t border-l border-gold" />
-              <div className="absolute bottom-6 left-6 w-8 h-8 border-b border-l border-gold" />
+
+              <div className="absolute left-6 top-6 h-8 w-8 border-l border-t border-gold" />
+
+              <div className="absolute bottom-6 left-6 h-8 w-8 border-b border-l border-gold" />
             </motion.div>
 
             {/* Right panel */}
@@ -35,13 +50,18 @@ export default function IntroScreen({ duration = 3000, children }: { duration?: 
               key="right-panel"
               initial={{ x: 0, rotateY: 0 }}
               exit={{ x: "100%", rotateY: 8 }}
-              transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
+              transition={{
+                duration: 1.1,
+                ease: [0.76, 0, 0.24, 1],
+              }}
               style={{ transformOrigin: "right center" }}
-              className="relative w-1/2 h-full bg-gradient-to-bl from-bg to-bg-alt shadow-brand"
+              className="relative h-full w-1/2 bg-gradient-to-bl from-bg to-bg-alt shadow-brand"
             >
               <div className="absolute inset-4 border border-border" />
-              <div className="absolute top-6 right-6 w-8 h-8 border-t border-r border-gold" />
-              <div className="absolute bottom-6 right-6 w-8 h-8 border-b border-r border-gold" />
+
+              <div className="absolute right-6 top-6 h-8 w-8 border-r border-t border-gold" />
+
+              <div className="absolute bottom-6 right-6 h-8 w-8 border-b border-r border-gold" />
             </motion.div>
 
             {/* Seam */}
@@ -50,19 +70,32 @@ export default function IntroScreen({ duration = 3000, children }: { duration?: 
               initial={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
-              className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-px bg-gold"
+              className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-gold"
             />
 
-            {/* Static content */}
+            {/* Content */}
             <motion.div
               key="content"
               initial={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.5 }}
-              className="absolute inset-0 flex flex-col items-center justify-center gap-3 pointer-events-none"
+              className="pointer-events-none absolute inset-0 flex flex-col items-center justify-between"
             >
-              <span className="text-gold text-xl tracking-[0.3em]">◇</span>
-              <h1 className="font-script text-fg text-5xl md:text-6xl">Y & H</h1>
+              <div className="bg-amber-600" />
+
+              <div className="flex flex-col items-center">
+                <span className="text-3xl font-bold text-gold">◇</span>
+
+                <h1 className="font-script text-5xl text-fg md:text-6xl">Y & H</h1>
+              </div>
+
+              {/* Enter Button */}
+              <button
+                onClick={handleEnter}
+                className="pointer-events-auto mb-12 cursor-pointer font-italic text-2xl font-extrabold uppercase text-fg transition-all duration-300 animate-bounce md:mb-24"
+              >
+                Click To Open
+              </button>
             </motion.div>
           </div>
         )}

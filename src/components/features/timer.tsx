@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Reveal from "./reveal";
 
 interface TimeLeft {
   days: number;
@@ -58,8 +59,12 @@ export default function Timer({ targetDate }: { targetDate: string }) {
           key={index}
           className="flex flex-col items-center justify-center w-20 sm:w-32 h-28 sm:h-44 rounded-lg border border-border border-t-3 border-t-gold shadow-xl"
         >
-          <span className="text-5xl sm:text-6xl font-serif text-[#800020] mb-2">{block.value}</span>
-          <span className="text-[10px] md:text-xs font-sans tracking-widest text-[#B3925D]">{block.label}</span>
+          <Reveal>
+            <span className="text-5xl sm:text-6xl font-serif text-[#800020] mb-2">{block.value}</span>
+          </Reveal>
+          <Reveal>
+            <span className="text-[10px] md:text-xs font-sans tracking-widest text-[#B3925D]">{block.label}</span>
+          </Reveal>
         </div>
       ))}
     </div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { toast } from "sonner";
+import Reveal from "../features/reveal";
 
 export default function ConnectSection() {
   // state
@@ -29,64 +30,83 @@ export default function ConnectSection() {
 
   return (
     <section className="my-15 flex flex-col items-center gap-5 text-center px-2">
-      <p className="text-gold">RSVP</p>
-      <h2 className="font-italic text-7xl text-fg">Leave Us a Message</h2>
+      <Reveal>
+        <p className="text-gold">RSVP</p>
+      </Reveal>
+      <Reveal delay={0.5}>
+        <h2 className="font-italic text-7xl text-fg">Leave Us a Message</h2>
+      </Reveal>
       <form action="" onSubmit={(e) => sendMessage(e)} className="w-full max-w-125 flex flex-col items-center gap-5">
-        <h6 className="text-text text-xl font-bold font-serif mt-5">Your Name</h6>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="bg-bg-alt border border-border text-center outline-none h-12 w-full max-w-125 rounded-lg font-sans"
-          placeholder="Your Name"
-        />
+        <Reveal>
+          <h6 className="text-text text-xl font-bold font-serif mt-5">Your Name</h6>
+        </Reveal>
+        <Reveal className="w-full max-w-125">
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="bg-bg-alt border border-border text-center outline-none h-12 w-full max-w-125 rounded-lg font-sans"
+            placeholder="Your Name"
+          />
+        </Reveal>
 
-        <h6 className="text-text text-xl font-bold font-serif">Your Congratulations</h6>
-        <textarea
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          className="bg-bg-alt border border-border text-center outline-none w-full max-w-125 rounded-lg font-sans py-2 h-32"
-          placeholder="Your Congratulations"
-        />
+        <Reveal>
+          <h6 className="text-text text-xl font-bold font-serif">Your Congratulations</h6>
+        </Reveal>
+        <Reveal className="w-full max-w-125">
+          <textarea
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            className="bg-bg-alt border border-border text-center outline-none w-full max-w-125 rounded-lg font-sans py-2 h-32"
+            placeholder="Your Congratulations"
+          />
+        </Reveal>
 
-        <h6 className="text-text text-xl font-bold font-serif">Will You Attend?</h6>
+        <Reveal>
+          <h6 className="text-text text-xl font-bold font-serif">Will You Attend?</h6>
+        </Reveal>
         <div className="flex gap-5">
-          <button
-            type="button"
-            onClick={() => setAttending(true)}
-            className="px-5 py-1.5 text-fg-light border-2 font-semibold border-fg-light hover:bg-fg hover:text-bg-alt cursor-pointer"
-          >
-            Yes
-          </button>
-          <button
-            type="button"
-            className="px-5 py-1.5 text-fg-light border-2 font-semibold border-fg-light cursor-pointer"
-            onClick={() =>
-              toast("ياعم عيب عليك ! 😥", {
-                description: "أنت كدا كدا هتنورنا يا صاحبي مفيهاش كلام 😍😊",
-                action: {
-                  label: "Undo",
-                  onClick: () => console.log("Undo"),
-                },
-                className: "!bg-fg !text-bg-alt !border !border-gold font-serif shadow-brand-sm !text-4xl !font-semibold cursor-pointer",
-                descriptionClassName: "!text-bg-alt font-sans text-2xl",
-                actionButtonStyle: {
-                  backgroundColor: "var(--color-fg)",
-                  color: "var(--color-bg)",
-                },
-              })
-            }
-          >
-            No
-          </button>
+          <Reveal>
+            <button
+              type="button"
+              onClick={() => setAttending(true)}
+              className="px-5 py-1.5 text-fg-light border-2 font-semibold border-fg-light hover:bg-fg hover:text-bg-alt cursor-pointer"
+            >
+              Yes
+            </button>
+          </Reveal>
+          <Reveal>
+            <button
+              type="button"
+              className="px-5 py-1.5 text-fg-light border-2 font-semibold border-fg-light cursor-pointer"
+              onClick={() =>
+                toast("ياعم عيب عليك ! 😥", {
+                  description: "أنت كدا كدا هتنورنا يا صاحبي مفيهاش كلام 😍😊",
+                  action: {
+                    label: "Undo",
+                    onClick: () => console.log("Undo"),
+                  },
+                  className: "!bg-fg !text-bg-alt !border !border-gold font-serif shadow-brand-sm !text-4xl !font-semibold cursor-pointer",
+                  descriptionClassName: "!text-bg-alt font-sans text-2xl",
+                  actionButtonStyle: {
+                    backgroundColor: "var(--color-fg)",
+                    color: "var(--color-bg)",
+                  },
+                })
+              }
+            >
+              No
+            </button>
+          </Reveal>
         </div>
-
-        <button
-          type="submit"
-          className="bg-fg text-bg font-bold py-3 px-8 text-sm rounded-sm mt-5 cursor-pointer hover:opacity-90 transition-opacity"
-        >
-          Send With Love
-        </button>
+        <Reveal>
+          <button
+            type="submit"
+            className="bg-fg text-bg font-bold py-3 px-8 text-sm rounded-sm mt-5 cursor-pointer hover:opacity-90 transition-opacity"
+          >
+            Send With Love
+          </button>
+        </Reveal>
       </form>
     </section>
   );

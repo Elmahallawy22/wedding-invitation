@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
-  /* الألوان */
+  /* colors */
   --color-bg: #fdf5e6;
   --color-bg-alt: #f5e6d3;
   --color-fg: #7a1723;
@@ -12,14 +12,14 @@
   --color-muted: #9b7e5a;
   --color-border: #e2d0b8;
 
-  /* الخطوط */
+  /* fonts */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Anek Armenian', system-ui, sans-serif;
   --font-script: 'Pinyon Script', cursive;
   --font-italic: 'ItaliannoLocal', cursive;
   --font-arabic: 'Aref Ruqaa', 'Amiri', serif;
 
-  /* الظلال */
+  /* shadows */
   --shadow-brand: 0 24px 64px -20px rgba(122, 23, 35, 0.14);
   --shadow-brand-sm: 0 8px 24px -8px rgba(122, 23, 35, 0.12);
 

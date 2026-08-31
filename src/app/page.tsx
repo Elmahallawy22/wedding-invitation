@@ -13,7 +13,7 @@ import Footer from "@/components/sections/footer";
 
 export default function HomePage() {
   return (
-    <IntroScreen duration={2500}>
+    <IntroScreen duration={1500}>
       <main className="min-h-screen bg-">
         <HeroSection />
         <PlayerSound />

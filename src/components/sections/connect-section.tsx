@@ -36,7 +36,7 @@ export default function ConnectSection() {
       <Reveal delay={0.5}>
         <h2 className="font-italic text-7xl text-fg">Leave Us a Message</h2>
       </Reveal>
-      <form action="" onSubmit={(e) => sendMessage(e)} className="w-full max-w-125 flex flex-col items-center gap-5">
+      <form action="" onSubmit={(e) => sendMessage(e)} className="w-full max-w-125 flex flex-col items-center gap-5 px-4">
         <Reveal>
           <h6 className="text-text text-xl font-bold font-serif mt-5">Your Name</h6>
         </Reveal>
@@ -45,7 +45,7 @@ export default function ConnectSection() {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="bg-bg-alt border border-border text-center outline-none h-12 w-full max-w-125 rounded-lg font-sans"
+            className="bg-bg-alt border border-border text-center outline-none h-12 w-full rounded-lg font-sans"
             placeholder="Your Name"
           />
         </Reveal>
@@ -53,7 +53,7 @@ export default function ConnectSection() {
         <Reveal>
           <h6 className="text-text text-xl font-bold font-serif">Your Congratulations</h6>
         </Reveal>
-        <Reveal className="w-full max-w-125">
+        <Reveal className="w-full">
           <textarea
             value={message}
             onChange={(e) => setMessage(e.target.value)}

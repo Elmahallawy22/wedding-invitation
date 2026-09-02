@@ -19,7 +19,7 @@ export default function HallSection() {
               <h3 className="font-serif text-4xl text-fg">Kempinsko</h3>
             </Reveal>
             <Reveal>
-              <p className="text-muted font-sans max-w-68 text-start"> Talkha, Nile Corniche, before the Talkha Electricity Club.</p>
+              <p className="text-muted font-sans max-w-68 md:text-start"> Talkha, Nile Corniche, before the Talkha Electricity Club.</p>
             </Reveal>
           </div>
 
@@ -33,7 +33,7 @@ export default function HallSection() {
             </Reveal>
             <Reveal>
               <Link
-                href="https://goo.gl/maps/Sb1Cs55kqgkJRqeH7?g_st=aw"
+                href="https://maps.app.goo.gl/Wh7sVEwkkLLQy8YT9?g_st=aw"
                 target="_blank"
                 className="py-3 px-8 text-sm font-semibold border border-fg text-fg font-sans flex items-center gap-2 cursor-pointer hover:bg-fg hover:text-bg"
               >

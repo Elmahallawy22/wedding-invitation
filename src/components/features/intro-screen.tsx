@@ -101,7 +101,7 @@ export default function IntroScreen({ children, onOpen }: IntroScreenProps) {
                 onClick={handleEnter}
                 aria-label="Click To Open"
                 initial={{ scale: 1, rotate: 0, opacity: 1 }}
-                animate={isOpening ? { scale: 0.55, rotate: 30, opacity: 0, y: -15 } : { scale: [1, 1.06, 1] }}
+                animate={isOpening ? { scale: 0.55, rotate: 30, opacity: 0, y: -15 } : { scale: [1, 1.1, 1] }}
                 transition={isOpening ? { duration: 1, ease: "easeIn" } : { duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
                 whileHover={{ scale: 1.08 }}
                 whileTap={{ scale: 0.9 }}

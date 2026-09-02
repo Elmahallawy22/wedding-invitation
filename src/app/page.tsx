@@ -1,5 +1,4 @@
 import InvitationShell from "@/components/features/invitation-shell";
-
 import HeroSection from "@/components/sections/hero-section";
 import WelcomeSection from "@/components/sections/welcome-section";
 import CountdwonSection from "@/components/sections/countdwon-section";
@@ -16,7 +15,6 @@ export default function HomePage() {
     <InvitationShell>
       <main className="min-h-screen">
         <HeroSection />
-
         <div className="flex justify-center">
           <div className="container">
             <WelcomeSection />
@@ -24,7 +22,6 @@ export default function HomePage() {
             <PhoteSection />
           </div>
         </div>
-
         <ProgramSection />
         <HallSection />
         <GuidelinesSection />

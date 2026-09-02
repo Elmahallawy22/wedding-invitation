@@ -15,7 +15,7 @@ export default function CountdwonSection() {
         <div className="text-muted font-semibold">Until I Say &ldquo;Yes&rdquo;</div>
       </Reveal>
       <Reveal>
-        <Timer targetDate="2026-11-10T18:59:59" />
+        <Timer targetDate="2026-11-09T18:59:59" />
       </Reveal>
       <Reveal>
         <Image src="/assets/end.webp" alt="end" width={200} height={8} />

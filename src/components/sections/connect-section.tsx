@@ -82,10 +82,6 @@ export default function ConnectSection() {
               onClick={() =>
                 toast("ياعم عيب عليك ! 😥", {
                   description: "أنت كدا كدا هتنورنا يا صاحبي مفيهاش كلام 😍😊",
-                  action: {
-                    label: "Undo",
-                    onClick: () => console.log("Undo"),
-                  },
                   className: "!bg-fg !text-bg-alt !border !border-gold font-serif shadow-brand-sm !text-4xl !font-semibold cursor-pointer",
                   descriptionClassName: "!text-bg-alt font-sans text-2xl",
                   actionButtonStyle: {

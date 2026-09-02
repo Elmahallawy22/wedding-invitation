@@ -13,13 +13,13 @@ export default function HallSection() {
               <p className="text-gold">Join Us At</p>
             </Reveal>
             <Reveal delay={0.4}>
-              <h2 className="font-italic text-7xl text-fg">Mona Lisa</h2>
+              <h2 className="font-italic text-7xl text-fg">New Garden</h2>
             </Reveal>
             <Reveal>
-              <h3 className="font-serif text-4xl text-fg">Half Moon</h3>
+              <h3 className="font-serif text-4xl text-fg">Kempinsko</h3>
             </Reveal>
             <Reveal>
-              <p className="text-muted font-sans">Al Mansoura - Mit Khamis Entrance</p>
+              <p className="text-muted font-sans max-w-68 text-start"> Talkha, Nile Corniche, before the Talkha Electricity Club.</p>
             </Reveal>
           </div>
 
@@ -27,7 +27,7 @@ export default function HallSection() {
             <Reveal>
               <div className="w-76 sm:w-96 p-2 bg-bg-alt border border-border rounded-lg">
                 <div className="w-full h-full p-2 bg-bg-alt border border-border border-dashed rounded-lg">
-                  <Image src="/assets/hall.jpg" alt="Half Moon" width={400} height={200} className="rounded-lg w-full h-full" />
+                  <Image src="/assets/hall.jpeg" alt="Half Moon" width={400} height={200} className="rounded-lg w-full h-full" />
                 </div>
               </div>
             </Reveal>

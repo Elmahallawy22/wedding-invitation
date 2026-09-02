@@ -44,7 +44,7 @@ export default function GuidelinesSection() {
             </Reveal>
             <Reveal>
               <p className="text-text font-serif text-center">
-                Doors open at 8:00 PM. The celebration takes place at Mona Lisa, Half Moon, Mansoura.
+                Doors open at 8:00 PM. The celebration takes place at New Garden, Kempinsko, Talkha.
               </p>
             </Reveal>
             <Reveal>

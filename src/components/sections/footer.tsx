@@ -7,7 +7,7 @@ export default function Footer() {
         <h4 className="font-script text-6xl text-fg text-center">Youssef & Hana</h4>
       </Reveal>
       <Reveal>
-        <p className="text-sm text-gold font-sans">27 March 2027</p>
+        <p className="text-sm text-gold font-sans">2 September 2026</p>
       </Reveal>
       <Reveal>
         <p className="text-muted text-sm font-serif">

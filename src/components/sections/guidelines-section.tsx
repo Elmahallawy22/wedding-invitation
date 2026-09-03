@@ -69,7 +69,7 @@ export default function GuidelinesSection() {
             <Reveal>
               <div className="border border-border px-3 py-2 font-sans text-xs rounded-md text-fg font-semibold">Be Seated by 7:45 PM</div>
             </Reveal>
-            <div className="h-10"></div>
+            <div className="md:h-10"></div>
           </div>
         </div>
       </div>

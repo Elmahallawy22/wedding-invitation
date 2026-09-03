@@ -69,7 +69,18 @@ export default function ConnectSection() {
           <Reveal>
             <button
               type="button"
-              onClick={() => setAttending(true)}
+              onClick={() => {
+                setAttending(true);
+                toast(" ياعم بحبك مستنيك يا أخويا ❤️❤️😍", {
+                  position: "top-right",
+                  className:
+                    "!bg-fg !text-bg-alt !border !border-gold font-serif shadow-brand-sm !text-3xl md:!text-4xl !font-semibold cursor-pointer",
+                  actionButtonStyle: {
+                    backgroundColor: "var(--color-fg)",
+                    color: "var(--color-bg)",
+                  },
+                });
+              }}
               className="px-5 py-1.5 text-fg-light border-2 font-semibold border-fg-light hover:bg-fg hover:text-bg-alt cursor-pointer"
             >
               Yes
@@ -82,7 +93,8 @@ export default function ConnectSection() {
               onClick={() =>
                 toast("ياعم عيب عليك ! 😥", {
                   description: "أنت كدا كدا هتنورنا يا صاحبي مفيهاش كلام 😍😊",
-                  className: "!bg-fg !text-bg-alt !border !border-gold font-serif shadow-brand-sm !text-4xl !font-semibold cursor-pointer",
+                  className:
+                    "!bg-fg !text-bg-alt !border !border-gold font-serif shadow-brand-sm !text-3xl md:!text-4xl !font-semibold cursor-pointer",
                   descriptionClassName: "!text-bg-alt font-sans text-2xl",
                   actionButtonStyle: {
                     backgroundColor: "var(--color-fg)",

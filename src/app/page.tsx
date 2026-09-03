@@ -9,6 +9,7 @@ import GuidelinesSection from "@/components/sections/guidelines-section";
 import ConnectSection from "@/components/sections/connect-section";
 import EndSection from "@/components/sections/end-section";
 import Footer from "@/components/sections/footer";
+import FloatingHearts from "@/components/features/floating-heart";
 
 export default function HomePage() {
   return (
@@ -28,6 +29,8 @@ export default function HomePage() {
         <ConnectSection />
         <EndSection />
         <Footer />
+
+        <FloatingHearts />
       </main>
     </InvitationShell>
   );

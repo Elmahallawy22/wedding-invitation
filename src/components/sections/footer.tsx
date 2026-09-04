@@ -11,7 +11,7 @@ export default function Footer() {
       </Reveal>
       <Reveal>
         <p className="text-muted text-sm font-serif">
-          Created by <span className="text-fg font-sans font-medium">Youssef Elmahallawy</span>
+          Created by <span className="text-fg font-sans font-medium animate-pulse">Youssef Elmahallawy</span>
         </p>
       </Reveal>
     </footer>
